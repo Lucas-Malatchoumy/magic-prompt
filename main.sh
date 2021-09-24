@@ -89,6 +89,7 @@ cmd() {
     passw ) passw;;
     cd ) changefile "${commande[1]}";;
     pwd ) directory;;
+    hour ) date +"It is %T";;
     quit ) exit;;
     esac
   done
