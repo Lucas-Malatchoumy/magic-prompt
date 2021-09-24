@@ -67,6 +67,9 @@ passw() {
   fi
   fi
 }
+changefile() {
+  cd "${commande[1]}"
+}
 cmd() {
   while [ 1 ]; do
     printf "${BLUE}Enter your command : ${NC}"
@@ -81,6 +84,7 @@ cmd() {
     age ) age;;
     profile ) profile;;
     passw ) passw;;
+    cd ) changefile "${commande[1]}";;
     quit ) exit;;
     esac
   done
