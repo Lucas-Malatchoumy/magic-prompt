@@ -1,4 +1,8 @@
 #!/bin/bash
+AGE="Age : 20 ans"
+FIRSTNAME="Firstname : lucas"
+LASTNAME="Lastname : malatchoumy"
+EMAIL="Email : malatchoumylucas@gmail.com"
 BLUE='\033[0;34m'
 GREEN='\033[0;32m'
 RED='\033[0;31m'
@@ -35,6 +39,12 @@ age() {
     echo "You are major"
   fi
 }
+profile() {
+  echo "$AGE"
+  echo "$FIRSTNAME"
+  echo "$LASTNAME"
+  echo "$EMAIL"
+}
 cmd() {
   while [ 1 ]; do
     printf "${BLUE}Enter your command : ${NC}"
@@ -47,6 +57,7 @@ cmd() {
     version | --v | vers ) echo "prompt v1.0";;
     about ) echo "It's a prompt program with wich you can execute different commands in bash.";;
     age ) age;;
+    profile ) profile;;
     quit ) exit;;
     esac
   done
