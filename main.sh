@@ -7,6 +7,25 @@ BLUE='\033[0;34m'
 GREEN='\033[0;32m'
 RED='\033[0;31m'
 NC='\033[0m'
+help() {
+ printf "${GREEN}help${NC} : show commands you can use
+${GREEN}ls${NC} : show files and hidden files
+${GREEN}rm${NC} : delete file
+${GREEN}rmd ou rmdir${NC} : delete folder
+${GREEN}about${NC} : program description
+${GREEN}version ou --v ou vers${NC} :  program version
+${GREEN}age${NC} : Ask your age and tell you if you are major or minor
+${GREEN}quit${NC} : quit the program
+${GREEN}profile${NC} : show your personal informations : First Name, Last name, age, email
+${GREEN}passw${NC} : change your password with confirmation
+${GREEN}cd${NC} : go to a new folder or come back to a previous folder
+${GREEN}pwd${NC} : show you the repository
+${GREEN}hour${NC} : show the hour
+${GREEN}*${NC} : Invalid command
+${GREEN}httpget${NC} :  download html source code of web page and save in a new file. Ask the name of the file
+${GREEN}smtp${NC} : send a mail with the mail adress, the subject and the text
+${GREEN}open${NC} : open file with vim and create it if it doesn't exist\n"
+}
 liste() {
   ls ${commande[1]}
 }
@@ -98,6 +117,7 @@ cmd() {
     read cmd
     commande=($cmd)
     case "${commande[0]}" in
+    help ) help;;
     ls ) liste "${commande[1]}";;
     rm ) remove_file "${commande[1]}" ;;
     rmd | rmdir ) remove_folder "${commande[1]}";;
