@@ -22,6 +22,19 @@ remove_folder() {
     echo "Your folder ${commande[1]} doesn't exist"
   fi
 }
+age() {
+  echo "Enter your age"
+  read age
+  re='^[0-9]+$'
+  if ! [[ $age =~ $re ]] ; then
+    echo "error: Not a number" >&2; exit 1
+  fi
+  if [ $age -lt 18 ]; then
+    echo "You are minor"
+  else
+    echo "You are major"
+  fi
+}
 cmd() {
   while [ 1 ]; do
     printf "${BLUE}Enter your command : ${NC}"
@@ -33,6 +46,7 @@ cmd() {
     rmd | rmdir ) remove_folder "${commande[1]}";;
     version | --v | vers ) echo "prompt v1.0";;
     about ) echo "It's a prompt program with wich you can execute different commands in bash.";;
+    age ) age;;
     quit ) exit;;
     esac
   done
