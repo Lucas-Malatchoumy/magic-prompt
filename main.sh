@@ -32,6 +32,7 @@ cmd() {
     rm ) remove_file "${commande[1]}" ;;
     rmd | rmdir ) remove_folder "${commande[1]}";;
     version | --v | vers ) echo "prompt v1.0";;
+    about ) echo "It's a prompt program with wich you can execute different commands in bash.";;
     quit ) exit;;
     esac
   done
