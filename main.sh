@@ -73,6 +73,11 @@ changefile() {
 directory() {
   pwd
 }
+download_page() {
+  echo "Name of file is : "
+  read file
+  wget ${commande[1]} -O $file
+}
 cmd() {
   while [ 1 ]; do
     printf "${BLUE}Enter your command : ${NC}"
@@ -90,6 +95,7 @@ cmd() {
     cd ) changefile "${commande[1]}";;
     pwd ) directory;;
     hour ) date +"It is %T";;
+    httpget ) download_page "${commande[1]}";;
     quit ) exit;;
     esac
   done
