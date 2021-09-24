@@ -78,6 +78,20 @@ download_page() {
   read file
   wget ${commande[1]} -O $file
 }
+open() {
+  vim "${commande[1]}"
+}
+smtp() {
+  echo "Enter the recipient :"
+  read mail
+  echo "Choose the subject :"
+  read subject
+  echo "Right the text :"
+  read text
+  echo "$text" | mail -s "$subject" $mail
+  echo "Your mail has been sent"
+
+}
 cmd() {
   while [ 1 ]; do
     printf "${BLUE}Enter your command : ${NC}"
@@ -96,6 +110,8 @@ cmd() {
     pwd ) directory;;
     hour ) date +"It is %T";;
     httpget ) download_page "${commande[1]}";;
+    open ) open "${commande[1]}";;
+    smtp ) smtp;;
     quit ) exit;;
     esac
   done
