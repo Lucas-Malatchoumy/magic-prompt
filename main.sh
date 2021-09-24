@@ -113,6 +113,7 @@ cmd() {
     open ) open "${commande[1]}";;
     smtp ) smtp;;
     quit ) exit;;
+    * ) echo "Command Invalid";;
     esac
   done
 }
