@@ -1,5 +1,18 @@
 #!/bin/bash
-
+BLUE='\033[0;34m'
+GREEN='\033[0;32m'
+RED='\033[0;31m'
+NC='\033[0m'
+cmd() {
+  while [ 1 ]; do
+    printf "${BLUE}Enter your command : ${NC}"
+    read cmd
+    commande=($cmd)
+    case "${commande[0]}" in
+    quit ) exit;;
+    esac
+  done
+}
 main() {
   echo -n "Login : "
   read login
@@ -11,6 +24,7 @@ main() {
     exit
   fi
   echo "You can start";
+   cmd
     exit
 }
 main
