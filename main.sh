@@ -70,6 +70,9 @@ passw() {
 changefile() {
   cd "${commande[1]}"
 }
+directory() {
+  pwd
+}
 cmd() {
   while [ 1 ]; do
     printf "${BLUE}Enter your command : ${NC}"
@@ -85,6 +88,7 @@ cmd() {
     profile ) profile;;
     passw ) passw;;
     cd ) changefile "${commande[1]}";;
+    pwd ) directory;;
     quit ) exit;;
     esac
   done
