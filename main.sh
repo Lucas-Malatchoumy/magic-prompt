@@ -31,6 +31,7 @@ cmd() {
     ls ) liste "${commande[1]}";;
     rm ) remove_file "${commande[1]}" ;;
     rmd | rmdir ) remove_folder "${commande[1]}";;
+    version | --v | vers ) echo "prompt v1.0";;
     quit ) exit;;
     esac
   done
