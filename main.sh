@@ -45,6 +45,28 @@ profile() {
   echo "$LASTNAME"
   echo "$EMAIL"
 }
+passw() {
+  echo "Enter your first password :"
+  read -s password1
+  if [ "$password1" != "$password" ]; then
+    printf "${RED}It's not the same password${NC}\n"
+    exit
+  else
+    printf "${GREEN}Correct password${NC}\n"
+    echo "Enter your new password"
+    read -s password2
+    echo "Confirm your new password"
+    read -s password3
+  if [ "$password3" != "$password2" ]; then
+    printf "${RED}You don't right the same password${NC}\n"
+    exit
+  else
+    printf "${GREEN}You have a new passord${NC}\n"
+    password=${password2}
+    echo ${password}
+  fi
+  fi
+}
 cmd() {
   while [ 1 ]; do
     printf "${BLUE}Enter your command : ${NC}"
@@ -58,6 +80,7 @@ cmd() {
     about ) echo "It's a prompt program with wich you can execute different commands in bash.";;
     age ) age;;
     profile ) profile;;
+    passw ) passw;;
     quit ) exit;;
     esac
   done
