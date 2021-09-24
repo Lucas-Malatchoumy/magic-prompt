@@ -6,6 +6,14 @@ NC='\033[0m'
 liste() {
   ls ${commande[1]}
 }
+remove_file() {
+  if [ -e ${commande[1]} ]; then
+    rm ${commande[1]}
+    echo "Your file ${commande[1]} has been deleted"
+  else
+    echo "Your file ${commande[1]} doesn't exist"
+  fi
+}
 cmd() {
   while [ 1 ]; do
     printf "${BLUE}Enter your command : ${NC}"
@@ -13,6 +21,7 @@ cmd() {
     commande=($cmd)
     case "${commande[0]}" in
     ls ) liste "${commande[1]}";;
+    rm ) remove_file "${commande[1]}" ;;
     quit ) exit;;
     esac
   done
